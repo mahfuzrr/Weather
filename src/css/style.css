@@ -788,6 +788,12 @@
     #navRight{
         margin-right: 7%;
     }
+
+    #visResult h1{
+        width: 90%;
+        font-size: 40px;
+        text-align: center;
+    }
     
 }
 
