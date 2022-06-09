@@ -1,11 +1,11 @@
-import rainyDay from '../assets/rainy-day.png';
-import NYC from '../assets/NYC Skyline.jpg'
-import '../css/style.css';
-import RightSide from './RightSide';
 import { useEffect, useState } from 'react';
 import Cloudy from '../assets/cloud.png';
 import Haze from '../assets/haze.png';
+import NYC from '../assets/NYC Skyline.jpg';
+import rainyDay from '../assets/rainy-day.png';
 import Sun from '../assets/sun.png';
+import '../css/style.css';
+import RightSide from './RightSide';
 
 
 export default function LeftSide() {
@@ -25,6 +25,8 @@ export default function LeftSide() {
     const [vis, setVis] = useState(0);
     const [cf, setCF] = useState('℃');
     const [timezone, setTimeZone]= useState(0);
+    const [Lat, setLat] = useState(0);
+    const [Lon, setLon] = useState(0);
 
 
     const handleChange = (e) => {
@@ -61,6 +63,7 @@ export default function LeftSide() {
 
             setFinalAdd(address);
 
+
             fetch(`https://api.openweathermap.org/data/2.5/weather?q=${address}&units=metric&appid=f0373ee5488f740bcc226311d533416e`).then((resp) => {
                 resp.json().then((result) => {
                     
@@ -73,11 +76,14 @@ export default function LeftSide() {
                     setVis(parseInt((result.visibility)/1000).toFixed(2));
                     setHum(result.main.humidity);
                     setTimeZone(result.timezone);
+                    setLat(result.coord.lat);
+                    setLon(result.coord.lon);
                     //console.log(result);
                     //console.log(result.rain['1h']);
                 }).catch((error)=>{setFinalAdd('Not Found')})
-            })
-        };
+            });
+            
+        }
     }
 
 
@@ -125,7 +131,7 @@ export default function LeftSide() {
                 </div>
                 
             </div>
-            <RightSide windResult={windResult} sunSet = {sunSet} sunRise={sunRise} vis={vis} humidity={hum} timezone = {timezone} />
+            <RightSide windResult={windResult} sunSet = {sunSet} sunRise={sunRise} vis={vis} humidity={hum} timezone = {timezone} finalAdd={finalAdd} Lat={Lat} Lon={Lon} />
         </div>
     );
 }

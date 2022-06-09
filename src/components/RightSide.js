@@ -1,9 +1,10 @@
-import Navbar from "./NavBar";
-import '../css/style.css';
 import moment from 'moment';
+import '../css/style.css';
+import Navbar from "./NavBar";
+import NextDay from './NextDay';
 
 
-export default function RightSide({windResult, sunSet, sunRise, vis, humidity, timezone}) {
+export default function RightSide({windResult, sunSet, sunRise, vis, humidity, timezone, finalAdd, Lat, Lon}) {
 
     const sunRiseTime = () =>{
         const x = moment.utc(sunRise,'X').add(timezone,'seconds').format('hh:mm A');
@@ -79,7 +80,7 @@ export default function RightSide({windResult, sunSet, sunRise, vis, humidity, t
                 </div>
 
                 <div className="tab-pane fade" id="pills-nextDay" role="tabpanel" aria-labelledby="pills-nextDay-tab">
-                    Site is under construction. It will update soon....
+                    <NextDay Lat={Lat} Lon={Lon} finalAdd={finalAdd}/>
                 </div>
 
             </div>

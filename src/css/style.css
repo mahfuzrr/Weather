@@ -1,169 +1,757 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
 }
 
-#mainDiv{
+:root {
+  --tempC: "℃";
+  --tempF: "℉";
+}
+
+#mainDiv {
+  width: 100%;
+  height: 100vh;
+  background-color: #f6f6f8;
+}
+
+#leftSideDiv {
+  background-color: white;
+  padding: 20px;
+  height: 100vh;
+}
+
+#rightSideDiv {
+  background-color: #f6f6f8;
+  padding: 20px;
+}
+
+#sBar {
+  z-index: 1;
+  border-radius: 20px;
+}
+
+.form-control {
+  padding-left: 50px;
+}
+#groupSearch {
+  width: 50%;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+#sBar::placeholder {
+  font-size: 12px;
+}
+
+#searchIcon {
+  position: absolute;
+  top: 20%;
+  left: 7%;
+  z-index: 2;
+}
+
+#searchIcon i {
+  color: #7d7d7d;
+}
+
+#imageSec {
+  margin-top: 15%;
+  width: 80%;
+}
+
+#imageSec img {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+#Temp {
+  width: 80%;
+  margin-top: 10%;
+}
+
+#Temp h1 {
+  text-align: center;
+}
+
+#feel {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+#Temp p {
+  width: 84%;
+  text-align: center;
+  font-weight: 500;
+}
+
+#littleInfo {
+  width: 80%;
+  margin-top: 5%;
+}
+
+#insideLittleInfo {
+  width: 47%;
+  margin: auto;
+}
+
+#insideLittleInfo p,
+i {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.iconSpace {
+  margin-left: 3%;
+}
+
+#locationCard {
+  width: 45%;
+  height: 80px;
+  margin: 5% 0% 0% 18%;
+  position: relative;
+}
+
+#locationCard img {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  opacity: 0.9;
+  pointer-events: none;
+  user-select: none;
+}
+
+#locationCard p {
+  position: absolute;
+  z-index: 2;
+  font-size: 30px;
+  font-weight: 500;
+  top: 27%;
+  left: 27%;
+  color: white;
+}
+
+#nav {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+#navLeft .nav-pills > li > button {
+  color: rgb(139, 139, 139);
+  background-color: transparent;
+  border-bottom: 2px solid #f6f6f8;
+  border-radius: 0px;
+  margin-left: 20px;
+  padding: 5px;
+  font-weight: 500;
+}
+
+#navLeft .nav-pills > li > button.active {
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+#navRight {
+  margin-right: 15%;
+}
+
+#navRight > button {
+  width: 46px;
+  padding: 10px 2px;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: 10px;
+  border: none;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  color: black;
+}
+
+#navRight .tempActive {
+  background-color: black;
+  color: white;
+}
+
+#navRight > button:active {
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.2);
+}
+#pills-today {
+  padding: 30px;
+}
+
+#infoCard {
+  width: 100%;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+#cardSec {
+  margin-top: 50px;
+}
+
+#infoCard .cardContainer .card {
+  width: 33%;
+  height: 250px;
+  border: none;
+  box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+#infoCard .cardContainer .cardTitles {
+  margin-left: 5%;
+  margin-top: 5%;
+  color: #606060;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  font-weight: 400px;
+}
+
+#infoCard .cardContainer .cardIcons {
+  margin-left: 5%;
+}
+
+#infoCard .cardContainer .cardIcons i {
+  font-size: 20px;
+  color: #4050d2;
+}
+
+#infoCard .cardContainer .cardIcons span {
+  font-size: 12px;
+  font-weight: 400px;
+}
+
+#rainResult h1 {
+  text-align: center;
+  font-size: 40px;
+  width: 45%;
+}
+
+#windResult h1 {
+  text-align: center;
+  font-size: 40px;
+  width: 90%;
+}
+
+#timeResult {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-left: 5%;
+}
+
+#timeFirst {
+  display: flex;
+  margin-bottom: 7%;
+}
+
+#timeSec {
+  display: flex;
+}
+
+#timeSec > span {
+  margin-right: 10%;
+}
+
+#timeFirst > span {
+  margin-right: 10%;
+}
+
+#timeFirst > span > i {
+  font-size: 25px;
+  color: #ffbf00;
+}
+
+#timeSec > span > i {
+  font-size: 25px;
+  color: #ffbf00;
+}
+
+#visResult h1 {
+  width: 70%;
+  font-size: 40px;
+  text-align: center;
+}
+
+#visMsg p {
+  margin-left: 8%;
+}
+
+#leftSideDive #credit {
+  background-color: crimson;
+}
+
+@media only screen and (max-width: 1450px) {
+  #windResult h1 {
+    text-align: center;
+    font-size: 40px;
     width: 100%;
-    height: 100vh;
-    background-color: #F6F6F8;
-}
+  }
 
-#leftSideDiv{
-    background-color: white;
-    padding: 20px;
-    height: 100vh;
-}
-
-
-
-#rightSideDiv{
-    background-color: #F6F6F8;
-    padding: 20px;
-}
-
-#sBar{
-    z-index: 1;
-    border-radius: 20px;
-}
-
-.form-control{
-    padding-left: 50px;
-}
-#groupSearch{
-    width: 50%;
-    margin: auto;
-    position: relative;
-    z-index: 1;
-}
-
-#sBar::placeholder{
-    font-size: 12px;
-}
-
-#searchIcon{
-    position: absolute;
-    top: 20%;
-    left: 7%;
-    z-index: 2;
-}
-
-#searchIcon i{
-    color: #7d7d7d;
-}
-
-#imageSec{
-    margin-top: 15%;
-    width: 80%;
-}
-
-#imageSec img{
-    width: 150px;
-    height: 150px;
-    margin: auto;
-    display: block;
-    user-select: none;
-    pointer-events: none;
-}
-
-#Temp{
-    width: 80%;
-    margin-top: 10%;
-}
-
-#Temp h1{
+  #visResult h1 {
+    width: 70%;
+    font-size: 40px;
     text-align: center;
+  }
 }
 
-#feel{
-    font-size: 14px;
-    font-weight: 300;
-}
-
-#Temp p{
-    width: 84%;
-    text-align: center;
-    font-weight: 500;
-}
-
-#littleInfo{
-    width: 80%;
-    margin-top: 5%;
-}
-
-#insideLittleInfo{
-    width: 47%;
+@media only screen and (max-width: 1400px) {
+  #insideLittleInfo {
+    width: 52%;
     margin: auto;
+  }
 }
 
-#insideLittleInfo p, i{
-    font-size: 13px;
-    font-weight: 400;
+@media only screen and (max-width: 1329px) {
+  #insideLittleInfo {
+    width: 55%;
+    margin: auto;
+  }
 }
 
-.iconSpace{
-    margin-left: 3%;
+@media only screen and (max-width: 1225px) {
+  #insideLittleInfo {
+    width: 60%;
+    margin: auto;
+  }
 }
 
-#locationCard{
-    width: 45%;
+@media only screen and (max-width: 1130px) {
+  #insideLittleInfo {
+    width: 65%;
+    margin: auto;
+  }
+
+  #locationCard {
+    width: 55%;
     height: 80px;
     margin: 5% 0% 0% 18%;
     position: relative;
-}
+  }
 
-#locationCard img{
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    opacity: 0.9;
-    pointer-events: none;
-    user-select: none;
-}
-
-#locationCard p{
+  #locationCard p {
     position: absolute;
     z-index: 2;
     font-size: 30px;
     font-weight: 500;
-    top: 27%;
-    left: 27%;
+    top: 25%;
+    left: 25%;
     color: white;
+  }
 }
 
-#nav{
+@media only screen and (max-width: 1350px) {
+  #infoCard .cardContainer .card {
+    width: 38%;
+  }
+
+  #windResult h1 {
+    text-align: center;
+    font-size: 40px;
+    width: 90%;
+  }
+
+  #visResult h1 {
+    width: 60%;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  #locationCard {
+    width: 50%;
+    height: 80px;
+    margin: 5% 0% 0% 18%;
+    position: relative;
+  }
+
+  #locationCard p {
+    position: absolute;
+    z-index: 2;
+    font-size: 30px;
+    font-weight: 500;
+    top: 25%;
+    left: 25%;
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 1322px) {
+  #windResult h1 {
+    text-align: center;
+    font-size: 40px;
+    width: 95%;
+  }
+
+  #visResult h1 {
+    width: 70%;
+    font-size: 40px;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1185px) {
+  #infoCard .cardContainer .card {
+    width: 45%;
+  }
+
+  #locationCard {
+    width: 55%;
+    height: 80px;
+    margin: 5% 0% 0% 18%;
+    position: relative;
+  }
+
+  #locationCard p {
+    position: absolute;
+    z-index: 2;
+    font-size: 30px;
+    font-weight: 500;
+    top: 25%;
+    left: 25%;
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  #rightSideDiv {
+    background-color: #f6f6f8;
+    padding: 0px;
+  }
+
+  .cardContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #infoCard .cardContainer .card {
+    width: 48%;
+  }
+
+  #locationCard {
+    width: 60%;
+    height: 80px;
+    margin: 5% 0% 0% 18%;
+    position: relative;
+  }
+
+  #locationCard p {
+    position: absolute;
+    z-index: 2;
+    font-size: 27px;
+    font-weight: 500;
+    top: 23%;
+    left: 23%;
+    color: white;
+  }
+}
+
+@media only screen and(max-width: 1105px) {
+  #locationCard {
+    width: 65%;
+    height: 80px;
+    margin: 5% 0% 0% 18%;
+    position: relative;
+  }
+
+  #locationCard p {
+    position: absolute;
+    z-index: 2;
+    font-size: 25px;
+    font-weight: 500;
+    top: 23%;
+    left: 23%;
+    color: white;
+  }
+  #visResult h1 {
+    width: 70%;
+    font-size: 40px;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 787px) {
+  #locationCard {
+    width: 90%;
+    height: 80px;
+    margin: 5% 0% 0% 10%;
+    position: relative;
+  }
+
+  #locationCard p {
+    position: absolute;
+    z-index: 2;
+    font-size: 25px;
+    font-weight: 500;
+    top: 23%;
+    left: 23%;
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #mainDiv {
+    height: 80vh;
+  }
+
+  #nav {
     display: flex;
     justify-content: space-between;
     position: relative;
-}
+    margin-top: 10%;
+  }
 
-#navLeft .nav-pills > li > button{
-    color: rgb(139, 139, 139);
-    background-color: transparent;
-    border-bottom: 2px solid #F6F6F8;
-    border-radius: 0px;
-    margin-left: 20px;
-    padding: 5px;
+  #leftSideDiv {
+    height: 80vh;
+  }
+
+  #Temp p {
+    width: 90%;
+    text-align: center;
     font-weight: 500;
+  }
+
+  #insideLittleInfo {
+    width: 40%;
+    margin: auto;
+  }
+
+  #locationCard {
+    width: 60%;
+    height: 80px;
+    margin: 5% 0% 0% 18%;
+    position: relative;
+  }
+
+  #locationCard p {
+    position: absolute;
+    z-index: 2;
+    font-size: 25px;
+    font-weight: 500;
+    top: 23%;
+    left: 38%;
+    color: white;
+  }
+
+  #rainResult h1 {
+    text-align: center;
+    font-size: 40px;
+    width: 60%;
+  }
 }
 
-#navLeft .nav-pills > li > button.active{
-    color: black;
-    border-bottom: 2px solid black;
+@media only screen and (max-width: 451px) {
+  #insideLittleInfo {
+    width: 48%;
+    margin: auto;
+  }
+  #rainResult h1 {
+    text-align: center;
+    font-size: 40px;
+    width: 80%;
+  }
 }
 
-#navRight{
-    margin-right: 15%;
+@media only screen and (max-width: 423px) {
+  #littleInfo {
+    width: 90%;
+    margin-top: 5%;
+  }
+
+  #insideLittleInfo {
+    width: 55%;
+    margin: auto;
+  }
 }
 
-#navRight > button{
-    width: 46px;
-    padding: 10px 2px;
+@media only screen and (max-width: 400px) {
+  #littleInfo {
+    width: 90%;
+    margin-top: 5%;
+  }
+
+  #insideLittleInfo {
+    width: 60%;
+    margin: auto;
+  }
+
+  #locationCard {
+    width: 65%;
+    height: 80px;
+    margin: 5% 0% 0% 18%;
+    position: relative;
+  }
+
+  #locationCard p {
+    position: absolute;
+    z-index: 2;
+    font-size: 25px;
+    font-weight: 500;
+    top: 25%;
+    left: 35%;
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  #littleInfo {
+    width: 90%;
+    margin-top: 5%;
+  }
+
+  #insideLittleInfo {
+    width: 61%;
+    margin: auto;
+  }
+  #groupSearch {
+    width: 55%;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media only screen and (max-width: 346px) {
+  #littleInfo {
+    width: 90%;
+    margin-top: 5%;
+  }
+
+  #insideLittleInfo {
+    width: 63%;
+    margin: auto;
+  }
+  #groupSearch {
+    width: 60%;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  #rainResult h1 {
+    text-align: center;
+    font-size: 35px;
+    width: 80%;
+  }
+
+  #infoCard .cardContainer .cardTitles {
+    font-size: 13px;
+  }
+
+  #windResult h1 {
+    text-align: center;
+    font-size: 35px;
+    width: 95%;
+  }
+  #visResult h1 {
+    width: 70%;
+    font-size: 35px;
+  }
+
+  #timeResult {
+    padding: 0px;
+  }
+
+  #timeFirst > h5 {
+    font-size: 18px;
+  }
+  #timeSec > h5 {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #rainResult h1 {
+    text-align: center;
+    font-size: 35px;
+    width: 80%;
+  }
+
+  #infoCard .cardContainer .card {
+    width: 70%;
+    height: 240px;
+    border: none;
+    box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    /* margin: 0px auto 0px auto; */
+  }
+
+  #firstCard {
+    margin: 0px auto 0px auto;
+  }
+  #secondCard {
+    margin: 50px auto 0px auto;
+  }
+  #thirdCard {
+    margin: 0px auto 0px auto;
+  }
+  #fourthCard {
+    margin: 50px auto 0px auto;
+  }
+
+  #infoCard .cardContainer .cardTitles {
+    font-size: 13px;
+  }
+
+  #infoCard .cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  #windResult h1 {
+    text-align: center;
+    font-size: 35px;
+    width: 95%;
+  }
+  #visResult h1 {
+    width: 70%;
+    font-size: 35px;
+  }
+
+  #timeResult {
+    padding: 0px;
+  }
+
+  #timeFirst > h5 {
+    font-size: 18px;
+  }
+  #timeSec > h5 {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 358px) {
+  #visResult h1 {
+    width: 80%;
+    font-size: 35px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  #navRight > button {
+    width: 43px;
+    padding: 9px 1px;
     border-radius: 50%;
     text-align: center;
     margin-left: 10px;
@@ -171,631 +759,215 @@
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
     background-color: white;
     color: black;
-}
+  }
 
-#navRight .tempActive{
-    background-color: black;
-    color: white;
-}
+  #navRight {
+    margin-right: 7%;
+  }
 
-#navRight > button:active{
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.2);
-
-}
-#pills-today{
-    padding: 30px;
-}
-
-#infoCard{
-    width: 100%;
-}
-
-.cardContainer{
-    display: flex;
-    justify-content: space-around;
-}
-
-#cardSec{
-    margin-top: 50px;
-}
-
-#infoCard .cardContainer .card{
-    width: 33%;
-    height: 250px;
-    border: none;
-    box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.3);
-    border-radius: 7px;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-#infoCard .cardContainer .cardTitles{
-    margin-left: 5%;
-    margin-top: 5%;
-    color: #606060;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    font-weight: 400px;
-}
-
-#infoCard .cardContainer .cardIcons{
-    margin-left: 5%;
-}
-
-#infoCard .cardContainer  .cardIcons i{
-    font-size: 20px;
-    color: #4050D2;
-}
-
-#infoCard .cardContainer .cardIcons span{
-    font-size: 12px;
-    font-weight: 400px;
-}
-
-
-#rainResult h1{
-    text-align: center;
-    font-size: 40px;
-    width: 45%;
-}
-
-#windResult h1{
-    text-align: center;
-    font-size: 40px;
+  #visResult h1 {
     width: 90%;
-}
-
-#timeResult{
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    margin-left: 5%;
-}
-
-#timeFirst{
-    display: flex;
-    margin-bottom: 7%;
-}
-
-#timeSec{
-    display: flex;
-}
-
-#timeSec > span{
-    margin-right: 10%;
-}
-
-#timeFirst > span{
-    margin-right: 10%;
-}
-
-
-#timeFirst > span > i{
-    font-size: 25px;
-    color: #ffbf00;
-}
-
-#timeSec > span > i{
-    font-size: 25px;
-    color: #ffbf00;
-}
-
-#visResult h1{
-    width: 70%;
     font-size: 40px;
     text-align: center;
+  }
 }
 
-#visMsg p{
-    margin-left: 8%;
+/*Update-1 Start*/
+
+#nextSection {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
 }
 
-#leftSideDive #credit{
-    background-color: crimson;
+#nextSection .nextCard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  width: 50%;
+  height: 140px;
+  border-radius: 15px;
+  padding: 25px 15px;
+  box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
+  margin-top: 2%;
+  margin-left: 3%;
 }
 
-@media only screen and (max-width: 1450px) {
-    #windResult h1{
-        text-align: center;
-        font-size: 40px;
-        width: 100%;
-    }
-
-    #visResult h1{
-        width: 70%;
-        font-size: 40px;
-        text-align: center;
-    }
+#nextSection .card-line {
+  width: 1px;
+  background-color: rgb(118, 118, 118);
+  height: 60px;
 }
 
-@media only screen and (max-width: 1400px) {
-    #insideLittleInfo{
-        width: 52%;
-        margin: auto;
-    }
-    
+#nextSection .card-left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-@media only screen and (max-width: 1329px) {
-    #insideLittleInfo{
-        width: 55%;
-        margin: auto;
-    }
-    
+#nextSection .card-left-side .card-day {
+  font-size: 18px;
 }
 
-@media only screen and (max-width: 1225px) {
-    #insideLittleInfo{
-        width: 60%;
-        margin: auto;
-    }
-    
+#nextSection .card-left-side .card-date {
+  font-size: 12px;
+  color: gray;
+  margin-top: -10%;
 }
 
-@media only screen and (max-width: 1130px) {
-    #insideLittleInfo{
-        width: 65%;
-        margin: auto;
-    }
-
-    #locationCard{
-        width: 55%;
-        height: 80px;
-        margin: 5% 0% 0% 18%;
-        position: relative;
-    }
-
-    #locationCard p{
-        position: absolute;
-        z-index: 2;
-        font-size: 30px;
-        font-weight: 500;
-        top: 25%;
-        left: 25%;
-        color: white;
-    }
-    
+#nextSection .card-left-side .card-details {
+  font-size: 12px;
+  margin-top: -2%;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
-
-@media only screen and (max-width: 1350px) {
-    #infoCard .cardContainer .card{
-        width: 38%;
-    }
-
-    #windResult h1{
-        text-align: center;
-        font-size: 40px;
-        width: 90%;
-    }
-
-    #visResult h1{
-        width: 60%;
-        font-size: 40px;
-        text-align: center;
-    }
-
-    #locationCard{
-        width: 50%;
-        height: 80px;
-        margin: 5% 0% 0% 18%;
-        position: relative;
-    }
-
-    #locationCard p{
-        position: absolute;
-        z-index: 2;
-        font-size: 30px;
-        font-weight: 500;
-        top: 25%;
-        left: 25%;
-        color: white;
-    }
+#nextSection .card-right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@media only screen and (max-width: 1322px) {
-    #windResult h1{
-        text-align: center;
-        font-size: 40px;
-        width: 95%;
-    }
-
-    #visResult h1{
-        width: 70%;
-        font-size: 40px;
-        text-align: center;
-    }
+#nextSection .card-right-side span i {
+  color: #fcbe2c;
+  font-size: 20px;
 }
 
-@media only screen and (max-width: 1185px) {
-    #infoCard .cardContainer .card{
-        width: 45%;
-    }
-
-    #locationCard{
-        width: 55%;
-        height: 80px;
-        margin: 5% 0% 0% 18%;
-        position: relative;
-    }
-
-    #locationCard p{
-        position: absolute;
-        z-index: 2;
-        font-size: 30px;
-        font-weight: 500;
-        top: 25%;
-        left: 25%;
-        color: white;
-    }
+#nextSection .card-right-side p {
+  font-size: 20px;
 }
 
-@media only screen and (max-width: 990px) {
-
-    #rightSideDiv{
-        background-color: #F6F6F8;
-        padding: 0px;
-    }
-    
-    .cardContainer{
-        display: flex;
-        justify-content: space-between;
-    }
-
-    
-    #infoCard .cardContainer .card{
-        width: 48%;
-    }
-
-    #locationCard{
-        width: 60%;
-        height: 80px;
-        margin: 5% 0% 0% 18%;
-        position: relative;
-    }
-
-    #locationCard p{
-        position: absolute;
-        z-index: 2;
-        font-size: 27px;
-        font-weight: 500;
-        top: 23%;
-        left: 23%;
-        color: white;
-    }
+@media only screen and (max-width: 1190px) {
+  #nextSection .nextCard {
+    width: 55%;
+  }
 }
 
-@media only screen and(max-width: 1105px)
-{
-    #locationCard{
-        width: 65%;
-        height: 80px;
-        margin: 5% 0% 0% 18%;
-        position: relative;
-    }
-
-    #locationCard p{
-        position: absolute;
-        z-index: 2;
-        font-size: 25px;
-        font-weight: 500;
-        top: 23%;
-        left: 23%;
-        color: white;
-    }
-    #visResult h1{
-        width: 70%;
-        font-size: 40px;
-        text-align: center;
-    }
+@media only screen and (max-width: 1065px) {
+  #nextSection .nextCard {
+    width: 60%;
+  }
 }
 
-@media only screen and (max-width: 787px)
-{
-    #locationCard{
-        width: 90%;
-        height: 80px;
-        margin: 5% 0% 0% 10%;
-        position: relative;
-    }
-
-    #locationCard p{
-        position: absolute;
-        z-index: 2;
-        font-size: 25px;
-        font-weight: 500;
-        top: 23%;
-        left: 23%;
-        color: white;
-    }
+@media only screen and (max-width: 849px) {
+  #nextSection .nextCard {
+    width: 70%;
+  }
 }
 
-@media only screen and (max-width: 576px)
-{
-    #mainDiv{
-        height: 80vh;
-    }
-
-    #nav{
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        margin-top: 10%;
-    }
-   
-    #leftSideDiv{
-        height: 80vh;
-    }
-    
-
-    #Temp p{
-        width: 90%;
-        text-align: center;
-        font-weight: 500;
-    }
-
-    #insideLittleInfo{
-        width: 40%;
-        margin: auto;
-    }
-
-    #locationCard{
-        width: 60%;
-        height: 80px;
-        margin: 5% 0% 0% 18%;
-        position: relative;
-    }
-
-    #locationCard p{
-        position: absolute;
-        z-index: 2;
-        font-size: 25px;
-        font-weight: 500;
-        top: 23%;
-        left: 38%;
-        color: white;
-    }
-
-    #rainResult h1{
-        text-align: center;
-        font-size: 40px;
-        width: 60%;
-    }
-}
-
-@media only screen and (max-width: 451px) {
-    #insideLittleInfo{
-        width: 48%;
-        margin: auto;
-    }
-    #rainResult h1{
-        text-align: center;
-        font-size: 40px;
-        width: 80%;
-    }
-    
-}
-
-@media only screen and (max-width: 423px) {
-    #littleInfo{
-        width: 90%;
-        margin-top: 5%;
-    }
-
-    #insideLittleInfo{
-        width: 55%;
-        margin: auto;
-    }
-    
+@media only screen and (max-width: 430px) {
+  #nextSection .nextCard {
+    width: 80%;
+  }
 }
 
 @media only screen and (max-width: 400px) {
-    #littleInfo{
-        width: 90%;
-        margin-top: 5%;
-    }
-
-    #insideLittleInfo{
-        width: 60%;
-        margin: auto;
-    }
-
-    #locationCard{
-        width: 65%;
-        height: 80px;
-        margin: 5% 0% 0% 18%;
-        position: relative;
-    }
-
-    #locationCard p{
-        position: absolute;
-        z-index: 2;
-        font-size: 25px;
-        font-weight: 500;
-        top: 25%;
-        left: 35%;
-        color: white;
-    }
-    
+  #nextSection .nextCard {
+    width: 90%;
+    height: 130px;
+  }
 }
 
-@media only screen and (max-width: 375px) {
-    #littleInfo{
-        width: 90%;
-        margin-top: 5%;
-    }
-
-    #insideLittleInfo{
-        width: 61%;
-        margin: auto;
-    }
-    #groupSearch{
-        width: 55%;
-        margin: auto;
-        position: relative;
-        z-index: 1;
-    }
-    
-    
+/* Switch */
+.switch {
+  display: inline-block;
 }
 
-@media only screen and (max-width: 346px) {
-    #littleInfo{
-        width: 90%;
-        margin-top: 5%;
-    }
-
-    #insideLittleInfo{
-        width: 63%;
-        margin: auto;
-    }
-    #groupSearch{
-        width: 60%;
-        margin: auto;
-        position: relative;
-        z-index: 1;
-    }
-    
+.switch span {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  float: left;
 }
 
-@media only screen and (max-width: 410px) {
-    
-    #rainResult h1{
-        text-align: center;
-        font-size: 35px;
-        width: 80%;
-    }
-
-    #infoCard .cardContainer .cardTitles{
-
-        font-size: 13px;
-    }
-
-    #windResult h1{
-        text-align: center;
-        font-size: 35px;
-        width: 95%;
-    }
-    #visResult h1{
-        width: 70%;
-        font-size: 35px;
-    }
-
-    #timeResult{
-        padding: 0px;
-    }
-
-    #timeFirst > h5{
-        font-size: 18px;
-    }
-    #timeSec > h5{
-        font-size: 18px;
-    }
-    
+.switch span input {
+  display: none;
 }
 
-@media only screen and (max-width: 400px) {
-    
-    #rainResult h1{
-        text-align: center;
-        font-size: 35px;
-        width: 80%;
-    }
-
-    #infoCard .cardContainer .card{
-        width: 70%;
-        height: 240px;
-        border: none;
-        box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.3);
-        border-radius: 7px;
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-        /* margin: 0px auto 0px auto; */
-    }
-
-    #firstCard{
-        margin: 0px auto 0px auto;
-    }
-    #secondCard{
-        margin: 50px auto 0px auto;
-    }
-    #thirdCard{
-        margin: 0px auto 0px auto;
-    }
-    #fourthCard{
-        margin: 50px auto 0px auto;
-    }
-    
-
-    #infoCard .cardContainer .cardTitles{
-        font-size: 13px;
-    }
-
-    #infoCard .cardContainer{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-    }
-
-    #windResult h1{
-        text-align: center;
-        font-size: 35px;
-        width: 95%;
-    }
-    #visResult h1{
-        width: 70%;
-        font-size: 35px;
-    }
-
-    #timeResult{
-        padding: 0px;
-    }
-
-    #timeFirst > h5{
-        font-size: 18px;
-    }
-    #timeSec > h5{
-        font-size: 18px;
-    }
-    
+.switch span input:checked + .slider {
+  background-color: #218d96;
 }
 
-@media only screen and (max-width: 358px) {
-    #visResult h1{
-        width: 80%;
-        font-size: 35px;
-    }
-    
+.switch span input:checked + .slider-f {
+  background-color: #218d96;
 }
 
-@media only screen and (max-width: 380px) {
-    #navRight > button{
-        width: 43px;
-        padding: 9px 1px;
-        border-radius: 50%;
-        text-align: center;
-        margin-left: 10px;
-        border: none;
-        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
-        background-color: white;
-        color: black;
-    }
-
-    #navRight{
-        margin-right: 7%;
-    }
-
-    #visResult h1{
-        width: 90%;
-        font-size: 40px;
-        text-align: center;
-    }
-    
+.switch span input:checked + .slider:before {
+  transform: translateX(26px);
 }
 
+.switch span input:checked + .slider-f:before {
+  transform: translateX(26px);
+}
 
+.switch span input:focus + .slider {
+  box-shadow: 0 0 1px #218d96;
+}
 
+.switch span input:focus + .slider-f {
+  box-shadow: 0 0 1px #218d96;
+}
 
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  border: 0;
+  outline: none;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+  cursor: pointer;
+}
+
+.slider-f {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  border: 0;
+  outline: none;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+  cursor: pointer;
+}
+
+.slider:before {
+  position: absolute;
+  content: var(--tempC);
+  height: 23px;
+  width: 24px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-f::before {
+  position: absolute;
+  content: var(--tempF);
+  height: 23px;
+  width: 24px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

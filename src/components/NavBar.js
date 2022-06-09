@@ -1,4 +1,5 @@
 import '../css/style.css';
+import Toggle from './Toggle';
 
 export default function Navbar() {
     return (
@@ -15,8 +16,7 @@ export default function Navbar() {
             </div>
 
             <div id="navRight">
-                <button id="celButton" className="tempActive">℃</button>
-                <button id="farButton">℉</button>
+                <Toggle/>
             </div>
         </div>
     );
