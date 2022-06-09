@@ -37,7 +37,7 @@ export default function NextDay({Lat, Lon, finalAdd})
                 setTemp1(Math.round(result.daily[1].temp.day));
                 setTemp2(Math.round(result.daily[2].temp.day));
                 setTemp3(Math.round(result.daily[3].temp.day));
-                console.log(result);
+                //console.log(result);
             })
         });
     }
