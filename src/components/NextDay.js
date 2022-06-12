@@ -1,18 +1,33 @@
 import moment from 'moment';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function NextDay({Lat, Lon, finalAdd})
+export default function NextDay({Lat, Lon, finalAdd, prevAdd, cf})
 {
+    
     const [Temp0, setTemp] = useState(0);
     const [Temp1, setTemp1] = useState(0);
     const [Temp2, setTemp2] = useState(0);
     const [Temp3, setTemp3] = useState(0);
-    const [add, setAdd] = useState('City');
 
-    useEffect(()=>{
-        setAdd((prev)=> prev !== finalAdd ? finalAdd : prev);
-    }, [])
 
+    const fetchData = () =>{
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${Lat}&lon=${Lon}&units=metric&exclude=alerts,current,hourly,minutely&appid=f0373ee5488f740bcc226311d533416e`).then((resp) =>{
+            resp.json().then((result) => {
+                setTemp(Math.round(result.daily[0].temp.day));
+                setTemp1(Math.round(result.daily[1].temp.day));
+                setTemp2(Math.round(result.daily[2].temp.day));
+                setTemp3(Math.round(result.daily[3].temp.day));
+                console.log('Fetching');
+            })
+        });
+    }
+
+    if(finalAdd !== prevAdd)
+    {
+        fetchData();
+    }
+    
+    
     const getDayName = (val) =>{
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         return days[val];
@@ -27,18 +42,6 @@ export default function NextDay({Lat, Lon, finalAdd})
             date: date,
             day: day,
         };
-    }
-
-    if(finalAdd !== add)
-    {
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${Lat}&lon=${Lon}&units=metric&exclude=alerts,current,hourly,minutely&appid=f0373ee5488f740bcc226311d533416e`).then((resp) =>{
-            resp.json().then((result) => {
-                setTemp(Math.round(result.daily[0].temp.day));
-                setTemp1(Math.round(result.daily[1].temp.day));
-                setTemp2(Math.round(result.daily[2].temp.day));
-                setTemp3(Math.round(result.daily[3].temp.day));
-            })
-        });
     }
 
     return(

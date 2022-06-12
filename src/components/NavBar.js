@@ -1,5 +1,4 @@
 import '../css/style.css';
-import Toggle from './Toggle';
 
 export default function Navbar() {
     return (
@@ -13,10 +12,6 @@ export default function Navbar() {
                         <button className="nav-link" id="pills-nextDay-tab" data-bs-toggle="pill" data-bs-target="#pills-nextDay" type="button" role="tab" aria-controls="pills-nextDay" aria-selected="false">Next Day</button>
                     </li>
                 </ul>
-            </div>
-
-            <div id="navRight">
-                <Toggle/>
             </div>
         </div>
     );

@@ -5,6 +5,7 @@ import NYC from '../assets/NYC Skyline.jpg';
 import rainyDay from '../assets/rainy-day.png';
 import Sun from '../assets/sun.png';
 import '../css/style.css';
+import { toCelcius, toFahrenheit } from './Converter';
 import RightSide from './RightSide';
 
 
@@ -27,11 +28,14 @@ export default function LeftSide() {
     const [timezone, setTimeZone]= useState(0);
     const [Lat, setLat] = useState(0);
     const [Lon, setLon] = useState(0);
+    const [isChecked, setChecked] = useState(false);
+    const [prevAdd, setPrevAdd] = useState('City');
 
 
     const handleChange = (e) => {
         const val = e.target.value;
         setAddress(val);
+        setPrevAdd(finalAdd);
     }
 
     const windResult = () =>{
@@ -56,11 +60,11 @@ export default function LeftSide() {
         
     }, [finalAdd])
 
-
     const searchTemp = (event) => {
 
         if (event.key === 'Enter') {
 
+            setPrevAdd(finalAdd);
             setFinalAdd(address);
 
 
@@ -86,6 +90,42 @@ export default function LeftSide() {
         }
     }
 
+    const handleChangeSw = (event) =>{
+        setChecked((event.target.checked));
+    }
+
+    const toggleChecked = () =>{
+        
+        if(!isChecked)
+        {
+            setTemp(toFahrenheit(temp));
+            setFeel(toFahrenheit(feel));
+            setCF('℉');
+        }
+        else{
+            setTemp(toCelcius(temp));
+            setFeel(toCelcius(feel));
+            setCF('℃');
+        }
+        setChecked(!isChecked);
+    }
+
+    useEffect(()=>{
+      
+      const allCss = document.getElementById('slide').classList;
+      if(isChecked)
+      {
+        allCss.add('slider-f');
+        allCss.remove('slider');
+      }
+      else
+      {
+        allCss.add('slider');
+        allCss.remove('slider-f');
+      }
+    
+    }, [isChecked])
+
 
     return (
         <div className='row'>
@@ -93,14 +133,24 @@ export default function LeftSide() {
 
                 <div className="row">
 
+                <div id="searchGroup">
                     <div id="searchBar" className="col-sm-12">
-
+                  
                         <div className="form-group" id="groupSearch">
                             <span id="searchIcon"><i className="fa-solid fa-magnifying-glass"></i></span>
-                            <input type="text" id="sBar" className="form-control" onChange={handleChange} onKeyPress={searchTemp} placeholder="Serch for places" />
+                            <input type="text" id="sBar" className="form-control" onChange={handleChange} onKeyPress={searchTemp} placeholder="Serch for places"/>
                         </div>
-
+        
                     </div>
+                    <div id="switchLeft">
+                        <div className="switch">
+                            <span>
+                            <input type="checkbox" id="toggleInput" checked={isChecked} onChange={handleChangeSw}></input>
+                            <button id="slide" className="slider" type="button" onClick={toggleChecked}></button>
+                            </span>
+                        </div> 
+                    </div>
+                </div>
 
                     <div id="imageSec">
                         
@@ -131,7 +181,7 @@ export default function LeftSide() {
                 </div>
                 
             </div>
-            <RightSide windResult={windResult} sunSet = {sunSet} sunRise={sunRise} vis={vis} humidity={hum} timezone = {timezone} finalAdd={finalAdd} Lat={Lat} Lon={Lon} />
+            <RightSide windResult={windResult} sunSet = {sunSet} sunRise={sunRise} vis={vis} humidity={hum} timezone = {timezone} finalAdd={finalAdd} prevAdd={prevAdd} Lat={Lat} Lon={Lon} cf={cf} />
         </div>
     );
 }

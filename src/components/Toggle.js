@@ -29,11 +29,13 @@ export default function Toggle()
     }, [isChecked])
 
     return(
+      <div id="switchLeft">
         <div className="switch">
-          <span>
-            <input value='' type="checkbox" id="toggleInput" checked={isChecked} onChange={handleChange}></input>
-            <button id="slide" className="slider" type="button" onClick={toggleChecked}></button>
-          </span>
-        </div>
+            <span>
+              <input type="checkbox" id="toggleInput" checked={isChecked} onChange={handleChange}></input>
+              <button id="slide" className="slider" type="button" onClick={toggleChecked}></button>
+            </span>
+        </div> 
+      </div>
     );
 }
