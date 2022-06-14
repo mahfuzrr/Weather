@@ -77,7 +77,7 @@ export default function LeftSide() {
                 setTimeZone(resp.timezone);
                 
                 //Debug
-                console.log(resp);
+                //console.log(resp);
 
                 return{
                     lat: resp.coord.lat,
@@ -88,7 +88,7 @@ export default function LeftSide() {
                     secRes.json().then((result)=>{
 
                         //Debug
-                        console.log(result);
+                        //console.log(result);
                         
                         setTemp0(Math.round(result.daily[0].temp.day));
                         setTemp1(Math.round(result.daily[1].temp.day));
