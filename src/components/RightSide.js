@@ -4,7 +4,7 @@ import Navbar from "./NavBar";
 import NextDay from './NextDay';
 
 
-export default function RightSide({windResult, sunSet, sunRise, vis, humidity, timezone, finalAdd, prevAdd, Lat, Lon, cf}) {
+export default function RightSide({windResult, sunSet, sunRise, vis, humidity, timezone, Temp0=0, Temp1=0, Temp2=0, Temp3=0, cf}) {
 
     const sunRiseTime = () =>{
         const x = moment.utc(sunRise,'X').add(timezone,'seconds').format('hh:mm A');
@@ -80,7 +80,7 @@ export default function RightSide({windResult, sunSet, sunRise, vis, humidity, t
                 </div>
 
                 <div className="tab-pane fade" id="pills-nextDay" role="tabpanel" aria-labelledby="pills-nextDay-tab">
-                    <NextDay Lat={Lat} Lon={Lon} finalAdd={finalAdd} prevAdd={prevAdd} cf={cf}/>
+                    <NextDay Temp0={Temp0} Temp1={Temp1} Temp2={Temp2} Temp3={Temp3} cf={cf}/>
                 </div>
 
             </div>

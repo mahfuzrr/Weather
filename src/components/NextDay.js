@@ -1,33 +1,7 @@
 import moment from 'moment';
-import { useState } from "react";
 
-export default function NextDay({Lat, Lon, finalAdd, prevAdd, cf})
+export default function NextDay({Temp0=0, Temp1=0, Temp2=0, Temp3=0, cf})
 {
-    
-    const [Temp0, setTemp] = useState(0);
-    const [Temp1, setTemp1] = useState(0);
-    const [Temp2, setTemp2] = useState(0);
-    const [Temp3, setTemp3] = useState(0);
-
-
-    const fetchData = () =>{
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${Lat}&lon=${Lon}&units=metric&exclude=alerts,current,hourly,minutely&appid=f0373ee5488f740bcc226311d533416e`).then((resp) =>{
-            resp.json().then((result) => {
-                setTemp(Math.round(result.daily[0].temp.day));
-                setTemp1(Math.round(result.daily[1].temp.day));
-                setTemp2(Math.round(result.daily[2].temp.day));
-                setTemp3(Math.round(result.daily[3].temp.day));
-                console.log('Fetching');
-            })
-        });
-    }
-
-    if(finalAdd !== prevAdd)
-    {
-        fetchData();
-    }
-    
-    
     const getDayName = (val) =>{
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         return days[val];

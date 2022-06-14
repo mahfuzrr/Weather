@@ -26,16 +26,16 @@ export default function LeftSide() {
     const [vis, setVis] = useState(0);
     const [cf, setCF] = useState('℃');
     const [timezone, setTimeZone]= useState(0);
-    const [Lat, setLat] = useState(0);
-    const [Lon, setLon] = useState(0);
     const [isChecked, setChecked] = useState(false);
-    const [prevAdd, setPrevAdd] = useState('City');
+    const [Temp0, setTemp0] = useState(0);
+    const [Temp1, setTemp1] = useState(0);
+    const [Temp2, setTemp2] = useState(0);
+    const [Temp3, setTemp3] = useState(0);
 
 
     const handleChange = (e) => {
         const val = e.target.value;
         setAddress(val);
-        setPrevAdd(finalAdd);
     }
 
     const windResult = () =>{
@@ -60,33 +60,48 @@ export default function LeftSide() {
         
     }, [finalAdd])
 
+    const fetchData = (firstUrl) =>{
+        fetch(firstUrl).then((res)=>{
+            res.json().then((resp)=>{
+
+                setTemp(parseInt(resp.main.temp));
+                setFeel(parseInt(resp.main.feels_like));
+                setCloud(resp.weather[0].main);
+                setWind(resp.wind.speed);
+                setSunRise(resp.sys.sunrise);
+                setSunSet(resp.sys.sunset);
+                setVis(parseInt((resp.visibility)/1000).toFixed(2));
+                setHum(resp.main.humidity);
+                setTimeZone(resp.timezone);
+                
+                //Debug
+                console.log(resp);
+
+                return{
+                    lat: resp.coord.lat,
+                    lon: resp.coord.lon
+                }
+            }).then(({lat=0, lon=0})=>{
+                fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=alerts,current,hourly,minutely&appid=f0373ee5488f740bcc226311d533416e`).then((secRes)=>{
+                    secRes.json().then((result)=>{
+
+                        //Debug
+                        console.log(result);
+                        
+                        setTemp0(Math.round(result.daily[0].temp.day));
+                        setTemp1(Math.round(result.daily[1].temp.day));
+                        setTemp2(Math.round(result.daily[2].temp.day));
+                        setTemp3(Math.round(result.daily[3].temp.day));
+                    }).catch((err)=>{console.log('Error')});
+                })
+            })
+        })
+    }
+
     const searchTemp = (event) => {
-
         if (event.key === 'Enter') {
-
-            setPrevAdd(finalAdd);
             setFinalAdd(address);
-
-
-            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${address}&units=metric&appid=f0373ee5488f740bcc226311d533416e`).then((resp) => {
-                resp.json().then((result) => {
-                    
-                    setTemp(parseInt(result.main.temp));
-                    setFeel(parseInt(result.main.feels_like));
-                    setCloud(result.weather[0].main);
-                    setWind(result.wind.speed);
-                    setSunRise(result.sys.sunrise);
-                    setSunSet(result.sys.sunset);
-                    setVis(parseInt((result.visibility)/1000).toFixed(2));
-                    setHum(result.main.humidity);
-                    setTimeZone(result.timezone);
-                    setLat(result.coord.lat);
-                    setLon(result.coord.lon);
-                    //console.log(result);
-                    //console.log(result.rain['1h']);
-                }).catch((error)=>{setFinalAdd('Not Found')})
-            });
-            
+            fetchData(`https://api.openweathermap.org/data/2.5/weather?q=${address}&units=metric&appid=f0373ee5488f740bcc226311d533416e`);
         }
     }
 
@@ -181,7 +196,7 @@ export default function LeftSide() {
                 </div>
                 
             </div>
-            <RightSide windResult={windResult} sunSet = {sunSet} sunRise={sunRise} vis={vis} humidity={hum} timezone = {timezone} finalAdd={finalAdd} prevAdd={prevAdd} Lat={Lat} Lon={Lon} cf={cf} />
+            <RightSide windResult={windResult} sunSet = {sunSet} sunRise={sunRise} vis={vis} humidity={hum} timezone = {timezone} Temp0={Temp0} Temp1={Temp1} Temp2={Temp2} Temp3={Temp3} cf={cf}/>
         </div>
     );
 }
