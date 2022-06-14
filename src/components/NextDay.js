@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { toFahrenheit } from './Converter';
 
 export default function NextDay({Temp0=0, Temp1=0, Temp2=0, Temp3=0, cf})
 {
@@ -32,7 +33,7 @@ export default function NextDay({Temp0=0, Temp1=0, Temp2=0, Temp3=0, cf})
 
                 <div className="card-right-side">
                     <span><i className="fas fa-cloud"></i></span>
-                    <p>{Temp0}℃</p>
+                    <p>{cf === '℉' ? toFahrenheit(Temp0) : Temp0}{cf === '℉' ? '℉' : '℃'}</p>
                 </div>
             </div>
 
@@ -47,7 +48,7 @@ export default function NextDay({Temp0=0, Temp1=0, Temp2=0, Temp3=0, cf})
 
                 <div className="card-right-side">
                     <span><i className="fas fa-cloud"></i></span>
-                    <p>{Temp1}℃</p>
+                    <p>{cf === '℉' ? toFahrenheit(Temp1) : Temp1}{cf === '℉' ? '℉' : '℃'}</p>
                 </div>
             </div>
 
@@ -62,7 +63,7 @@ export default function NextDay({Temp0=0, Temp1=0, Temp2=0, Temp3=0, cf})
 
                 <div className="card-right-side">
                     <span><i className="fas fa-cloud"></i></span>
-                    <p>{Temp2}℃</p>
+                    <p>{cf === '℉' ? toFahrenheit(Temp2) : Temp2}{cf === '℉' ? '℉' : '℃'}</p>
                 </div>
             </div>
 
@@ -77,7 +78,7 @@ export default function NextDay({Temp0=0, Temp1=0, Temp2=0, Temp3=0, cf})
 
                 <div className="card-right-side">
                     <span><i className="fas fa-cloud"></i></span>
-                    <p>{Temp3}℃</p>
+                    <p>{cf === '℉' ? toFahrenheit(Temp3) : Temp3}{cf === '℉' ? '℉' : '℃'}</p>
                 </div>
             </div>
                

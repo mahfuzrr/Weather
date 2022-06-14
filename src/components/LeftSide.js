@@ -60,6 +60,8 @@ export default function LeftSide() {
         
     }, [finalAdd])
 
+
+    // Fetching API
     const fetchData = (firstUrl) =>{
         fetch(firstUrl).then((res)=>{
             res.json().then((resp)=>{
@@ -104,6 +106,8 @@ export default function LeftSide() {
             fetchData(`https://api.openweathermap.org/data/2.5/weather?q=${address}&units=metric&appid=f0373ee5488f740bcc226311d533416e`);
         }
     }
+
+    //Fetching End
 
     const handleChangeSw = (event) =>{
         setChecked((event.target.checked));
