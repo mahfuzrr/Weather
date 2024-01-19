@@ -1,20 +1,14 @@
 {
   "files": {
-    "main.css": "/Weather/static/css/main.7215abca.css",
-    "main.js": "/Weather/static/js/main.3ceb70b6.js",
-    "static/js/787.13d76ca7.chunk.js": "/Weather/static/js/787.13d76ca7.chunk.js",
+    "main.css": "/Weather/static/css/main.a09637ee.css",
+    "main.js": "/Weather/static/js/main.96259e2a.js",
     "static/media/NYC Skyline.jpg": "/Weather/static/media/NYC Skyline.27192f82fb61a4ea24b7.jpg",
-    "static/media/haze.png": "/Weather/static/media/haze.4ab5fe4656c57650d9d9.png",
-    "static/media/rainy-day.png": "/Weather/static/media/rainy-day.31150bd7471d99e8f2d9.png",
-    "static/media/sun.png": "/Weather/static/media/sun.e81609105b8eb137f55d.png",
-    "static/media/cloud.png": "/Weather/static/media/cloud.048eacc725e9a07d44f9.png",
     "index.html": "/Weather/index.html",
-    "main.7215abca.css.map": "/Weather/static/css/main.7215abca.css.map",
-    "main.3ceb70b6.js.map": "/Weather/static/js/main.3ceb70b6.js.map",
-    "787.13d76ca7.chunk.js.map": "/Weather/static/js/787.13d76ca7.chunk.js.map"
+    "main.a09637ee.css.map": "/Weather/static/css/main.a09637ee.css.map",
+    "main.96259e2a.js.map": "/Weather/static/js/main.96259e2a.js.map"
   },
   "entrypoints": [
-    "static/css/main.7215abca.css",
-    "static/js/main.3ceb70b6.js"
+    "static/css/main.a09637ee.css",
+    "static/js/main.96259e2a.js"
   ]
 }
