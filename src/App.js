@@ -1,9 +1,7 @@
-import WrapBothSide from "./components/WrapBothSide";
+import WrapBothSide from './components/WrapBothSide';
 
 function App() {
-  return (
-    <WrapBothSide/>
-  );
+    return <WrapBothSide />;
 }
 
 export default App;

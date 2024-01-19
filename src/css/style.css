@@ -22,6 +22,7 @@
   background-color: white;
   padding: 20px;
   height: 100vh;
+  position: relative;
 }
 
 #rightSideDiv {
@@ -31,17 +32,27 @@
 
 #sBar {
   z-index: 1;
-  border-radius: 20px;
+  border-radius: 5px 0px 0px 5px;
+  border-left: 1.6px solid #ced6e0;
+  border-top: 1.6px solid #ced6e0;
+  border-bottom: 1.6px solid #ced6e0;
+}
+
+#sBar:focus {
+  border-color: #4050d2;
+  box-shadow: none;
 }
 
 #searchGroup {
   display: flex;
-  justify-content: flex-end;
   width: 100%;
 }
 
 #switchLeft {
-  width: 13%;
+  position: fixed;
+  left: 1%;
+  top: 90vh;
+  width: 60px;
 }
 
 #switchLeft .switch {
@@ -52,7 +63,7 @@
 #switchLeft .switch span {
   position: relative;
   width: 100%;
-  height: 34px;
+  height: 35px;
   float: left;
 }
 
@@ -60,16 +71,17 @@
   display: none;
 }
 
-#switchLeft .switch span input:checked + .slider {
-  background-color: #218d96;
+#switchLeft .switch span input:checked+.slider {
+  background-color: rgba(64, 80, 210, 0.8);
+  border: 1.5px solid #000000;
 }
 
-#switchLeft .switch span input:checked + .slider:before {
+#switchLeft .switch span input:checked+.slider:before {
   transform: translateX(26px);
 }
 
-#switchLeft .switch span input:focus + .slider {
-  box-shadow: 0 0 1px #218d96;
+#switchLeft .switch span input:focus+.slider {
+  box-shadow: 0 0 1px rgba(64, 80, 210, 0.8);
 }
 
 #switchLeft .switch .slider {
@@ -81,7 +93,8 @@
   width: 100%;
   border: 0;
   outline: none;
-  background-color: #ccc;
+  background-color: rgba(120, 120, 120, 0.4);
+  border: 1.5px solid #3240a8;
   transition: 0.4s;
   border-radius: 34px;
   cursor: pointer;
@@ -102,14 +115,58 @@
   align-items: center;
 }
 
+.switch span input:checked+.slider-f {
+  background-color: rgba(64, 80, 210, 0.8);
+}
+
+.switch span input:checked+.slider-f:before {
+  transform: translateX(26px);
+}
+
+.switch span input:focus+.slider-f {
+  box-shadow: 0 0 1px rgba(64, 80, 210, 0.8);
+}
+
+.slider-f {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  border: 0;
+  outline: none;
+  background-color: rgba(204, 204, 204, 0.4);
+  border: 1px solid rgb(184, 184, 184);
+  transition: 0.4s;
+  border-radius: 34px;
+  cursor: pointer;
+}
+
+.slider-f::before {
+  position: absolute;
+  content: var(--tempF);
+  height: 28px;
+  width: 29px;
+  left: 3%;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #searchBar {
-  width: 60%;
+  width: 85%;
+  margin: auto;
 }
 
 /* Change Here */
 
 .form-control {
-  padding-left: 50px;
+  padding-left: 35px;
 }
 
 /* Change Here */
@@ -119,6 +176,7 @@
   position: relative;
   z-index: 1;
 }
+
 /* Change Here */
 
 #sBar::placeholder {
@@ -128,7 +186,7 @@
 #searchIcon {
   position: absolute;
   top: 20%;
-  left: 7%;
+  left: 5%;
   z-index: 2;
 }
 
@@ -142,8 +200,17 @@
 }
 
 #imageSec img {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
+  margin: auto;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+#imageSec div {
+  width: 180px;
+  height: 180px;
   margin: auto;
   display: block;
   user-select: none;
@@ -152,7 +219,6 @@
 
 #Temp {
   width: 80%;
-  margin-top: 10%;
 }
 
 #Temp h1 {
@@ -165,25 +231,18 @@
 }
 
 #Temp p {
-  width: 84%;
+  width: 75%;
   text-align: center;
   font-weight: 500;
 }
 
 #littleInfo {
-  width: 80%;
-  margin-top: 5%;
+  width: 100%;
 }
 
 #insideLittleInfo {
-  width: 47%;
+  width: 60%;
   margin: auto;
-}
-
-#insideLittleInfo p,
-i {
-  font-size: 13px;
-  font-weight: 400;
 }
 
 .iconSpace {
@@ -191,8 +250,8 @@ i {
 }
 
 #locationCard {
-  width: 45%;
-  height: 80px;
+  width: 70%;
+  height: 95px;
   margin: 5% 0% 0% 18%;
   position: relative;
 }
@@ -201,8 +260,8 @@ i {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  border-radius: 20px;
-  opacity: 0.9;
+  border-radius: 5px;
+  opacity: 0.7;
   pointer-events: none;
   user-select: none;
 }
@@ -223,7 +282,7 @@ i {
   position: relative;
 }
 
-#navLeft .nav-pills > li > button {
+#navLeft .nav-pills>li>button {
   color: rgb(139, 139, 139);
   background-color: transparent;
   border-bottom: 2px solid #f6f6f8;
@@ -233,7 +292,7 @@ i {
   font-weight: 500;
 }
 
-#navLeft .nav-pills > li > button.active {
+#navLeft .nav-pills>li>button.active {
   color: black;
   border-bottom: 2px solid black;
 }
@@ -242,7 +301,7 @@ i {
   margin-right: 15%;
 }
 
-#navRight > button {
+#navRight>button {
   width: 46px;
   padding: 10px 2px;
   border-radius: 50%;
@@ -259,9 +318,10 @@ i {
   color: white;
 }
 
-#navRight > button:active {
+#navRight>button:active {
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.2);
 }
+
 #pills-today {
   padding: 30px;
 }
@@ -283,8 +343,8 @@ i {
   width: 33%;
   height: 250px;
   border: none;
-  box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.3);
-  border-radius: 7px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -342,20 +402,20 @@ i {
   display: flex;
 }
 
-#timeSec > span {
+#timeSec>span {
   margin-right: 10%;
 }
 
-#timeFirst > span {
+#timeFirst>span {
   margin-right: 10%;
 }
 
-#timeFirst > span > i {
+#timeFirst>span>i {
   font-size: 25px;
   color: #ffbf00;
 }
 
-#timeSec > span > i {
+#timeSec>span>i {
   font-size: 25px;
   color: #ffbf00;
 }
@@ -372,6 +432,137 @@ i {
 
 #leftSideDive #credit {
   background-color: crimson;
+}
+
+#groupSearch {
+  display: flex;
+}
+
+#groupSearch .searchBtn {
+  border: none;
+  padding: 4px 15px;
+  font-size: 13px;
+  background-color: #4050d2;
+  color: white;
+  border-radius: 0px 5px 5px 0px;
+  transition: ease all 0.2s;
+}
+
+#groupSearch .searchBtn:hover {
+  background-color: #3240a8;
+}
+
+#groupSearch .searchBtn:active {
+  transform: scale(0.97);
+}
+
+#groupSearch .accessLocationBtn {
+  margin-left: 10px;
+  border: 1px solid #b6beff;
+  padding: 3px 10px;
+  border-radius: 3px;
+  background-color: rgb(247, 246, 246);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+#groupSearch .accessLocationBtn:active {
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+#nextSection {
+  width: 100%;
+  height: 100%;
+  padding: 15px 20px;
+}
+
+#nextSection .nextCard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  width: 50%;
+  height: 100px;
+  border-radius: 3px;
+  padding: 25px 15px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
+  margin-left: 3%;
+  margin-top: 10px;
+}
+
+#nextSection .card-line {
+  width: 1px;
+  background-color: rgb(118, 118, 118);
+  height: 60px;
+}
+
+#nextSection .card-left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#nextSection .card-left-side .card-day {
+  font-size: 18px;
+}
+
+#nextSection .card-left-side .card-date {
+  font-size: 12px;
+  color: gray;
+  margin-top: -10%;
+}
+
+#nextSection .card-left-side .card-details {
+  font-size: 12px;
+  margin-top: -2%;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+#nextSection .card-right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#nextSection .card-right-side .card-right-default-img {
+  width: 35px;
+  height: 35px;
+}
+
+#nextSection .card-right-side img {
+  width: 30px;
+  height: 30px;
+}
+
+#nextSection .card-right-side p {
+  font-size: 20px;
+}
+
+#nextSection .card-right-side .card-right-temp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#nextSection .card-right-side .card-right-temp>p {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+}
+
+#nextSection .card-right-side .card-right-temp>p>span {
+  font-size: 10px;
+}
+
+/* responsive design */
+
+@media only screen and (max-width: 1455px) {
+  .slider-f::before {
+    left: 1%;
+  }
 }
 
 @media only screen and (max-width: 1450px) {
@@ -395,41 +586,9 @@ i {
   }
 }
 
-@media only screen and (max-width: 1329px) {
-  #insideLittleInfo {
-    width: 55%;
-    margin: auto;
-  }
-}
-
-@media only screen and (max-width: 1225px) {
-  #insideLittleInfo {
-    width: 60%;
-    margin: auto;
-  }
-}
-
-@media only screen and (max-width: 1130px) {
-  #insideLittleInfo {
-    width: 65%;
-    margin: auto;
-  }
-
-  #locationCard {
-    width: 55%;
-    height: 80px;
-    margin: 5% 0% 0% 18%;
-    position: relative;
-  }
-
-  #locationCard p {
-    position: absolute;
-    z-index: 2;
-    font-size: 30px;
-    font-weight: 500;
-    top: 25%;
-    left: 25%;
-    color: white;
+@media only screen and (max-width: 1390px) {
+  .slider-f::before {
+    left: 2%;
   }
 }
 
@@ -468,6 +627,13 @@ i {
   }
 }
 
+@media only screen and (max-width: 1329px) {
+  #insideLittleInfo {
+    width: 55%;
+    margin: auto;
+  }
+}
+
 @media only screen and (max-width: 1322px) {
   #windResult h1 {
     text-align: center;
@@ -479,6 +645,19 @@ i {
     width: 70%;
     font-size: 40px;
     text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1225px) {
+  #insideLittleInfo {
+    width: 60%;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 1190px) {
+  #nextSection .nextCard {
+    width: 55%;
   }
 }
 
@@ -504,6 +683,68 @@ i {
     color: white;
   }
 }
+
+@media only screen and (max-width: 1130px) {
+  #insideLittleInfo {
+    width: 65%;
+    margin: auto;
+  }
+
+  #locationCard {
+    width: 55%;
+    height: 80px;
+    margin: 5% 0% 0% 18%;
+    position: relative;
+  }
+
+  #locationCard p {
+    position: absolute;
+    z-index: 2;
+    font-size: 30px;
+    font-weight: 500;
+    top: 25%;
+    left: 25%;
+    color: white;
+  }
+
+  .slider-f::before {
+    left: 0.9%;
+  }
+}
+
+
+@media only screen and (max-width: 1105px) {
+  #locationCard {
+    width: 65%;
+    height: 80px;
+    margin: 5% 0% 0% 18%;
+    position: relative;
+  }
+
+  #locationCard p {
+    position: absolute;
+    z-index: 2;
+    font-size: 25px;
+    font-weight: 500;
+    top: 23%;
+    left: 23%;
+    color: white;
+  }
+
+  #visResult h1 {
+    width: 70%;
+    font-size: 40px;
+    text-align: center;
+  }
+}
+
+
+@media only screen and (max-width: 1065px) {
+  #nextSection .nextCard {
+    width: 60%;
+  }
+}
+
 
 @media only screen and (max-width: 990px) {
   #rightSideDiv {
@@ -538,27 +779,16 @@ i {
   }
 }
 
-@media only screen and(max-width: 1105px) {
-  #locationCard {
-    width: 65%;
-    height: 80px;
-    margin: 5% 0% 0% 18%;
-    position: relative;
-  }
 
-  #locationCard p {
-    position: absolute;
-    z-index: 2;
-    font-size: 25px;
-    font-weight: 500;
-    top: 23%;
-    left: 23%;
-    color: white;
-  }
-  #visResult h1 {
+@media only screen and (max-width: 849px) {
+  #nextSection .nextCard {
     width: 70%;
-    font-size: 40px;
-    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 846px) {
+  .slider-f::before {
+    left: 1%;
   }
 }
 
@@ -637,6 +867,7 @@ i {
     width: 48%;
     margin: auto;
   }
+
   #rainResult h1 {
     text-align: center;
     font-size: 40px;
@@ -644,69 +875,32 @@ i {
   }
 }
 
+@media only screen and (max-width: 440px) {
+  #switchLeft {
+    width: 16%;
+  }
+
+  #searchBar {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  #nextSection .nextCard {
+    width: 80%;
+  }
+}
+
 @media only screen and (max-width: 423px) {
   #littleInfo {
     width: 90%;
-    margin-top: 5%;
   }
 
   #insideLittleInfo {
     width: 55%;
     margin: auto;
   }
-}
 
-@media only screen and (max-width: 400px) {
-  #littleInfo {
-    width: 90%;
-    margin-top: 5%;
-  }
-
-  #insideLittleInfo {
-    width: 60%;
-    margin: auto;
-  }
-
-  #locationCard {
-    width: 65%;
-    height: 80px;
-    margin: 5% 0% 0% 18%;
-    position: relative;
-  }
-
-  #locationCard p {
-    position: absolute;
-    z-index: 2;
-    font-size: 25px;
-    font-weight: 500;
-    top: 25%;
-    left: 35%;
-    color: white;
-  }
-}
-
-@media only screen and (max-width: 375px) {
-  #littleInfo {
-    width: 90%;
-    margin-top: 5%;
-  }
-
-  #insideLittleInfo {
-    width: 61%;
-    margin: auto;
-  }
-}
-
-@media only screen and (max-width: 346px) {
-  #littleInfo {
-    width: 90%;
-    margin-top: 5%;
-  }
-
-  #insideLittleInfo {
-    width: 63%;
-    margin: auto;
-  }
 }
 
 @media only screen and (max-width: 410px) {
@@ -725,6 +919,7 @@ i {
     font-size: 35px;
     width: 95%;
   }
+
   #visResult h1 {
     width: 70%;
     font-size: 35px;
@@ -734,19 +929,71 @@ i {
     padding: 0px;
   }
 
-  #timeFirst > h5 {
+  #timeFirst>h5 {
     font-size: 18px;
   }
-  #timeSec > h5 {
+
+  #timeSec>h5 {
     font-size: 18px;
+  }
+
+  #switchLeft {
+    left: calc(100% - 62px);
+    top: 80vh;
+    width: 60px;
   }
 }
 
 @media only screen and (max-width: 400px) {
+  #nextSection .nextCard {
+    width: 90%;
+    height: 130px;
+  }
+
+  #littleInfo {
+    width: 90%;
+  }
+
+  #insideLittleInfo {
+    width: 60%;
+    margin: auto;
+  }
+
+  #locationCard {
+    width: 65%;
+    height: 80px;
+    margin: 5% 0% 0% 18%;
+    position:
+      relative;
+  }
+
+  #locationCard p {
+    position: absolute;
+    z-index: 2;
+    font-size: 25px;
+    font-weight: 500;
+    top: 25%;
+    left: 35%;
+    color: white;
+  }
+
   #rainResult h1 {
     text-align: center;
     font-size: 35px;
     width: 80%;
+  }
+
+  #searchBar {
+    width: 95%;
+    margin: auto;
+  }
+
+  /* #searchBar {
+    width: 100%;
+  } */
+
+  #leftSideDiv {
+    height: auto;
   }
 
   #infoCard .cardContainer .card {
@@ -764,12 +1011,15 @@ i {
   #firstCard {
     margin: 0px auto 0px auto;
   }
+
   #secondCard {
     margin: 50px auto 0px auto;
   }
+
   #thirdCard {
     margin: 0px auto 0px auto;
   }
+
   #fourthCard {
     margin: 50px auto 0px auto;
   }
@@ -789,6 +1039,7 @@ i {
     font-size: 35px;
     width: 95%;
   }
+
   #visResult h1 {
     width: 70%;
     font-size: 35px;
@@ -798,11 +1049,29 @@ i {
     padding: 0px;
   }
 
-  #timeFirst > h5 {
+  #timeFirst>h5 {
     font-size: 18px;
   }
-  #timeSec > h5 {
+
+  #timeSec>h5 {
     font-size: 18px;
+  }
+}
+
+
+@media only screen and (max-width: 375px) {
+  .slider-f::before {
+    left: 2%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  #littleInfo {
+    width: 90%;
+  }
+
+  #insideLittleInfo {
+    width: 61%;
   }
 }
 
@@ -813,328 +1082,8 @@ i {
   }
 }
 
-/*Update-1 Start*/
-
-#nextSection {
-  width: 100%;
-  height: 100%;
-  padding: 15px 20px;
-}
-
-#nextSection .nextCard {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: white;
-  width: 50%;
-  height: 130px;
-  border-radius: 15px;
-  padding: 25px 15px;
-  box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
-  margin-top: 2%;
-  margin-left: 3%;
-}
-
-#nextSection .card-line {
-  width: 1px;
-  background-color: rgb(118, 118, 118);
-  height: 60px;
-}
-
-#nextSection .card-left-side {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-#nextSection .card-left-side .card-day {
-  font-size: 18px;
-}
-
-#nextSection .card-left-side .card-date {
-  font-size: 12px;
-  color: gray;
-  margin-top: -10%;
-}
-
-#nextSection .card-left-side .card-details {
-  font-size: 12px;
-  margin-top: -2%;
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
-}
-
-#nextSection .card-right-side {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#nextSection .card-right-side span i {
-  color: #fcbe2c;
-  font-size: 20px;
-}
-
-#nextSection .card-right-side p {
-  font-size: 20px;
-}
-
-@media only screen and (max-width: 1190px) {
-  #nextSection .nextCard {
-    width: 55%;
-  }
-}
-
-@media only screen and (max-width: 1065px) {
-  #nextSection .nextCard {
-    width: 60%;
-  }
-}
-
-@media only screen and (max-width: 849px) {
-  #nextSection .nextCard {
-    width: 70%;
-  }
-}
-
-@media only screen and (max-width: 430px) {
-  #nextSection .nextCard {
-    width: 80%;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  #nextSection .nextCard {
-    width: 90%;
-    height: 130px;
-  }
-}
-
-.switch span input:checked + .slider-f {
-  background-color: #218d96;
-}
-
-.switch span input:checked + .slider-f:before {
-  transform: translateX(26px);
-}
-
-.switch span input:focus + .slider-f {
-  box-shadow: 0 0 1px #218d96;
-}
-
-.slider-f {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  border: 0;
-  outline: none;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
-  cursor: pointer;
-}
-
-.slider-f::before {
-  position: absolute;
-  content: var(--tempF);
-  height: 28px;
-  width: 29px;
-  left: 3%;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Update 2 */
-
-@media only screen and (max-width: 1455px) {
-  .slider-f::before {
-    left: 1%;
-  }
-}
-
-@media only screen and (max-width: 1430px) {
-  #switchLeft {
-    width: 14%;
-  }
-  #searchBar {
-    width: 75%;
-  }
-  .slider-f::before {
-    left: 1%;
-  }
-}
-
-@media only screen and (max-width: 1390px) {
-  #switchLeft {
-    width: 15%;
-  }
-  #searchBar {
-    width: 75%;
-  }
-  .slider-f::before {
-    left: 2%;
-  }
-}
-
-@media only screen and (max-width: 1285px) {
-  #switchLeft {
-    width: 16%;
-  }
-  #searchBar {
-    width: 75%;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  #switchLeft {
-    width: 17%;
-  }
-  #searchBar {
-    width: 75%;
-  }
-}
-
-@media only screen and (max-width: 1100px) {
-  #switchLeft {
-    width: 18%;
-  }
-  #searchBar {
-    width: 70%;
-  }
-}
-
-@media only screen and (max-width: 1129px) {
-  #switchLeft {
-    width: 18.3%;
-  }
-  #searchBar {
-    width: 70%;
-  }
-  .slider-f::before {
-    left: 0.9%;
-  }
-}
-
-@media only screen and (max-width: 1050px) {
-  #switchLeft {
-    width: 20%;
-  }
-  #searchBar {
-    width: 75%;
-  }
-}
-
-@media only screen and (max-width: 940px) {
-  #switchLeft {
-    width: 23%;
-  }
-  #searchBar {
-    width: 75%;
-  }
-}
-
-@media only screen and (max-width: 846px) {
-  #switchLeft {
-    width: 25%;
-  }
-  #searchBar {
-    width: 70%;
-  }
-  .slider-f::before {
-    left: 1%;
-  }
-}
-
-@media only screen and (max-width: 777px) {
-  #switchLeft {
-    width: 25%;
-  }
-  #searchBar {
-    width: 70%;
-  }
-}
-
-@media only screen and (max-width: 574px) {
-  #switchLeft {
-    width: 12%;
-  }
-  #searchBar {
-    width: 60%;
-  }
-}
-
-@media only screen and (max-width: 515px) {
-  #switchLeft {
-    width: 14%;
-  }
-  #searchBar {
-    width: 60%;
-  }
-}
-
-@media only screen and (max-width: 440px) {
-  #switchLeft {
-    width: 16%;
-  }
-  #searchBar {
-    width: 60%;
-  }
-}
-
-@media only screen and (max-width: 398px) {
-  #switchLeft {
-    width: 17.5%;
-  }
-  #searchBar {
-    width: 60%;
-  }
-}
-
-@media only screen and (max-width: 375px) {
-  #switchLeft {
-    width: 18%;
-  }
-  #searchBar {
-    width: 65%;
-  }
-  .slider-f::before {
-    left: 2%;
-  }
-}
-
-@media only screen and (max-width: 357px) {
-  #switchLeft {
-    width: 20%;
-  }
-  #searchBar {
-    width: 65%;
-  }
-
-  .slider-f::before {
-    left: 2%;
-  }
-}
-
-@media only screen and (max-width: 329px) {
-  #switchLeft {
-    width: 22%;
-  }
-  #searchBar {
-    width: 65%;
-  }
-
-  .slider-f::before {
-    left: 2%;
+@media only screen and (max-width: 346px) {
+  #insideLittleInfo {
+    width: 63%;
   }
 }
