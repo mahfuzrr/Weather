@@ -6,6 +6,7 @@ import sunriseImage from '../assets/sunrise.svg';
 import sunsetImage from '../assets/sunset.svg';
 import windsockImage from '../assets/windsock.svg';
 import '../css/style.css';
+import Graph from './Graph';
 import Navbar from './NavBar';
 import NextDay from './NextDay';
 
@@ -129,6 +130,7 @@ export default function RightSide({
                         )}
                     </div>
                 </div>
+                <Graph />
             </div>
         </div>
     );

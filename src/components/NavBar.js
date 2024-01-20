@@ -33,6 +33,20 @@ export default function Navbar() {
                             Next Day
                         </button>
                     </li>
+                    <li className="nav-item" role="presentation">
+                        <button
+                            className="nav-link"
+                            id="pills-graphDay-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#pills-graphDay"
+                            type="button"
+                            role="tab"
+                            aria-controls="pills-graphDay"
+                            aria-selected="false"
+                        >
+                            Graph
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>

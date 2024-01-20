@@ -22,23 +22,23 @@ export default function WeatherImage({ cloud }) {
     return (
         <div id="imageSec">
             {cloud === 'clouds' ? (
-                <img src={isDay ? cloudyDay : cloudyNight} />
+                <img src={isDay ? cloudyDay : cloudyNight} alt="Cloudy" />
             ) : cloud === 'haze' ? (
-                <img src={isDay ? hazeDay : hazeNight} />
+                <img src={isDay ? hazeDay : hazeNight} alt="Haze" />
             ) : cloud === 'clear' ? (
-                <img src={isDay ? clearDay : clearNight} alt="day" />
+                <img src={isDay ? clearDay : clearNight} alt="Clear" />
             ) : cloud === 'rain' || cloud === 'drizzle' ? (
-                <img src={isDay ? rain : rainyNight} alt="day" />
+                <img src={isDay ? rain : rainyNight} alt="Rain" />
             ) : cloud === 'mist' ? (
-                <img src={mist} alt="day" />
+                <img src={mist} alt="Mist" />
             ) : cloud === 'thunderstorm' ? (
-                <img src={thunderstorm} alt="day" />
+                <img src={thunderstorm} alt="Thunderstorm" />
             ) : cloud === 'snow' ? (
-                <img src={snow} alt="day" />
+                <img src={snow} alt="Snow" />
             ) : cloud === 'snow' ? (
-                <img src={brokenCloud} alt="day" />
+                <img src={brokenCloud} alt="Cloudy" />
             ) : (
-                <img src={isDay ? clearDay : clearNight} alt="day" />
+                <img src={isDay ? clearDay : clearNight} alt="Clear" />
             )}
         </div>
     );
