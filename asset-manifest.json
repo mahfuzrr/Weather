@@ -1,14 +1,32 @@
 {
   "files": {
-    "main.css": "/Weather/static/css/main.a09637ee.css",
-    "main.js": "/Weather/static/js/main.96259e2a.js",
+    "main.css": "/Weather/static/css/main.98e55d9a.css",
+    "main.js": "/Weather/static/js/main.7f896a4d.js",
+    "static/media/not_found.png": "/Weather/static/media/not_found.0c2eb886dc24f925d6bf.png",
     "static/media/NYC Skyline.jpg": "/Weather/static/media/NYC Skyline.27192f82fb61a4ea24b7.jpg",
+    "static/media/sleet.svg": "/Weather/static/media/sleet.49831a9248bd8dc7a4e32316707f9231.svg",
+    "static/media/partly-cloudy-night-rain.svg": "/Weather/static/media/partly-cloudy-night-rain.b72aff7dfd88941d71c1346a541a749e.svg",
+    "static/media/rain.svg": "/Weather/static/media/rain.216aa019fb16c2f8bfaefa3513af8680.svg",
+    "static/media/haze-day.svg": "/Weather/static/media/haze-day.9c105758e4095311ca7ab0f7cf69fae0.svg",
+    "static/media/haze-night.svg": "/Weather/static/media/haze-night.0dfc4dc103438c41a093aa92f86dd5d9.svg",
+    "static/media/overcast.svg": "/Weather/static/media/overcast.f0577ed0eacf89147215297328b603c3.svg",
+    "static/media/partly-cloudy-night.svg": "/Weather/static/media/partly-cloudy-night.bdfed6dbf1a8fd56c4f7ad855acc5034.svg",
+    "static/media/liquid-cheese.svg": "/Weather/static/media/liquid-cheese.15176eaee87f3e596f74.svg",
+    "static/media/thunderstorms.svg": "/Weather/static/media/thunderstorms.31446fab53b145b3f17870787605039f.svg",
+    "static/media/mist.svg": "/Weather/static/media/mist.1d567bfbec6fda7e0b8d6b2c90631e71.svg",
+    "static/media/sunset.svg": "/Weather/static/media/sunset.157f48203d0404bc6d0df78e0ca09207.svg",
+    "static/media/sunrise.svg": "/Weather/static/media/sunrise.cf394e2cd215dd1dc87a314248d27838.svg",
+    "static/media/windsock.svg": "/Weather/static/media/windsock.08e485baabbe393be52390cc71a529dc.svg",
+    "static/media/clear-day.svg": "/Weather/static/media/clear-day.057a07c99a528e24758ff33de96cf618.svg",
+    "static/media/clear-night.svg": "/Weather/static/media/clear-night.1026b23220ec81e4fa54af29b7316325.svg",
+    "static/media/humidity.svg": "/Weather/static/media/humidity.315af3fcbaa8f8253405bdd50b1dfd13.svg",
     "index.html": "/Weather/index.html",
-    "main.a09637ee.css.map": "/Weather/static/css/main.a09637ee.css.map",
-    "main.96259e2a.js.map": "/Weather/static/js/main.96259e2a.js.map"
+    "static/media/cloudy.svg": "/Weather/static/media/cloudy.395c6d34650c4d65a0fda43242736405.svg",
+    "main.98e55d9a.css.map": "/Weather/static/css/main.98e55d9a.css.map",
+    "main.7f896a4d.js.map": "/Weather/static/js/main.7f896a4d.js.map"
   },
   "entrypoints": [
-    "static/css/main.a09637ee.css",
-    "static/js/main.96259e2a.js"
+    "static/css/main.98e55d9a.css",
+    "static/js/main.7f896a4d.js"
   ]
 }
