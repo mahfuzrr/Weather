@@ -1,5 +1,10 @@
 import moment from 'moment';
 import { Toaster } from 'react-hot-toast';
+import humidityImage from '../assets/humidity.svg';
+import NotFoundImage from '../assets/not_found.png';
+import sunriseImage from '../assets/sunrise.svg';
+import sunsetImage from '../assets/sunset.svg';
+import windsockImage from '../assets/windsock.svg';
 import '../css/style.css';
 import Navbar from './NavBar';
 import NextDay from './NextDay';
@@ -43,17 +48,15 @@ export default function RightSide({
                                     <h1>{humidity}%</h1>
                                 </div>
                                 <div className="cardIcons">
-                                    <span>
-                                        <i
-                                            className="fas fa-temperature-high"
-                                            style={{ marginRight: 5 + '%' }}
-                                        ></i>
+                                    <img className="card-images" src={humidityImage} />
+                                    {/* <div className="card-images">{humidityImage}</div> */}
+                                    <p>
                                         {humidity <= 30
                                             ? 'Low'
                                             : humidity <= 60
                                               ? 'Medium'
                                               : 'High'}
-                                    </span>
+                                    </p>
                                 </div>
                             </div>
 
@@ -63,13 +66,8 @@ export default function RightSide({
                                     <h1>{windResult()} km/h</h1>
                                 </div>
                                 <div className="cardIcons">
-                                    <span>
-                                        <i
-                                            className="fa-solid fa-location-dot"
-                                            style={{ marginRight: 5 + '%' }}
-                                        ></i>{' '}
-                                        WSW
-                                    </span>
+                                    <img className="card-images" src={windsockImage} />
+                                    <p>WSW</p>
                                 </div>
                             </div>
                         </div>
@@ -77,19 +75,14 @@ export default function RightSide({
                         <div className="cardContainer" id="cardSec">
                             <div className="card" id="thirdCard">
                                 <span className="cardTitles">Sunrise & Sunset</span>
-
                                 <div id="timeResult">
                                     <div id="timeFirst">
-                                        <span>
-                                            <i className="fa fa-arrow-circle-up timeIcon"></i>
-                                        </span>
+                                        <img className="card-images" src={sunriseImage} />
                                         <h5>{sunRiseTime()}</h5>
                                     </div>
 
                                     <div id="timeSec">
-                                        <span>
-                                            <i className="fa fa-arrow-circle-down timeIcon"></i>
-                                        </span>
+                                        <img className="card-images" src={sunsetImage} />
                                         <h5>{sunSetTime()}</h5>
                                     </div>
                                 </div>
@@ -123,9 +116,17 @@ export default function RightSide({
                     aria-labelledby="pills-nextDay-tab"
                 >
                     <div id="nextSection">
-                        {upcomingTemperature?.map((data, index) => (
-                            <NextDay key={data?.dt} data={data} cf={cf} index={index + 1} />
-                        ))}
+                        {upcomingTemperature?.length > 0 ? (
+                            upcomingTemperature?.map((data, index) => (
+                                <NextDay key={data?.dt} data={data} cf={cf} index={index + 1} />
+                            ))
+                        ) : (
+                            <img
+                                className="not-found-img"
+                                src={NotFoundImage}
+                                alt="Search Address"
+                            />
+                        )}
                     </div>
                 </div>
             </div>

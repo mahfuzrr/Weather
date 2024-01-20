@@ -1,26 +1,44 @@
-import Assets from './Assets';
+import { useEffect, useState } from 'react';
+import clearDay from '../assets/clear-day.svg';
+import clearNight from '../assets/clear-night.svg';
+import cloudyDay from '../assets/cloudy.svg';
+import hazeDay from '../assets/haze-day.svg';
+import hazeNight from '../assets/haze-night.svg';
+import mist from '../assets/mist.svg';
+import brokenCloud from '../assets/overcast.svg';
+import rainyNight from '../assets/partly-cloudy-night-rain.svg';
+import cloudyNight from '../assets/partly-cloudy-night.svg';
+import rain from '../assets/rain.svg';
+import snow from '../assets/sleet.svg';
+import thunderstorm from '../assets/thunderstorms.svg';
 
 export default function WeatherImage({ cloud }) {
+    const [isDay, setIsDay] = useState(true);
+    useEffect(() => {
+        const hour = new Date().getHours();
+        const checkDay = hour >= 6 && hour <= 18 ? true : false;
+        setIsDay(checkDay);
+    }, []);
     return (
         <div id="imageSec">
             {cloud === 'clouds' ? (
-                <div>{Assets.Cloudy}</div>
+                <img src={isDay ? cloudyDay : cloudyNight} />
             ) : cloud === 'haze' ? (
-                <div>{Assets.Haze}</div>
+                <img src={isDay ? hazeDay : hazeNight} />
             ) : cloud === 'clear' ? (
-                <img src={Assets.Sun} alt="day" />
+                <img src={isDay ? clearDay : clearNight} alt="day" />
             ) : cloud === 'rain' || cloud === 'drizzle' ? (
-                <img src={Assets.rainyDay} alt="day" />
+                <img src={isDay ? rain : rainyNight} alt="day" />
             ) : cloud === 'mist' ? (
-                <div>{Assets.mist}</div>
+                <img src={mist} alt="day" />
             ) : cloud === 'thunderstorm' ? (
-                <div>{Assets.thunderstorm}</div>
+                <img src={thunderstorm} alt="day" />
             ) : cloud === 'snow' ? (
-                <div>{Assets.snow}</div>
+                <img src={snow} alt="day" />
             ) : cloud === 'snow' ? (
-                <div>{Assets.snow}</div>
+                <img src={brokenCloud} alt="day" />
             ) : (
-                <div>{Assets.fewCloud}</div>
+                <img src={isDay ? clearDay : clearNight} alt="day" />
             )}
         </div>
     );
