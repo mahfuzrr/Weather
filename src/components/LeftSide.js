@@ -25,6 +25,8 @@ export default function LeftSide() {
     const [timezone, setTimeZone] = useState(0);
     const [isChecked, setChecked] = useState(false);
     const [upcomingTemperature, setUpcomingTemperature] = useState([]);
+    const [maxTempData, setMaxTempData] = useState([]);
+    const [minTempData, setMinTempData] = useState([]);
 
     const windResult = () => {
         const ans = parseFloat(wind * (18 / 5)).toFixed(2);
@@ -66,6 +68,14 @@ export default function LeftSide() {
                                     if (index != 0 && index <= 5) return data;
                                 });
                                 setUpcomingTemperature(updatedResult);
+                                const maxData = result?.daily?.map((data) => {
+                                    return Math.round(data?.temp?.max);
+                                });
+                                const minData = result?.daily?.map((data) => {
+                                    return Math.round(data?.temp?.min);
+                                });
+                                setMaxTempData(maxData);
+                                setMinTempData(minData);
                             })
                             .catch(() => {
                                 console.log('Error');
@@ -181,6 +191,8 @@ export default function LeftSide() {
                 humidity={humidity}
                 timezone={timezone}
                 upcomingTemperature={upcomingTemperature}
+                maxTempData={maxTempData}
+                minTempData={minTempData}
                 cf={cf}
             />
         </div>

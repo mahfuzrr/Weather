@@ -18,6 +18,8 @@ export default function RightSide({
     humidity,
     timezone,
     upcomingTemperature = [],
+    maxTempData,
+    minTempData,
     cf,
 }) {
     const sunRiseTime = () => {
@@ -130,7 +132,7 @@ export default function RightSide({
                         )}
                     </div>
                 </div>
-                <Graph />
+                <Graph minTempData={minTempData} maxTempData={maxTempData} />
             </div>
         </div>
     );
