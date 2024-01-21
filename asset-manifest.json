@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Weather/static/css/main.98e55d9a.css",
-    "main.js": "/Weather/static/js/main.7f896a4d.js",
+    "main.css": "/Weather/static/css/main.0d84a3c8.css",
+    "main.js": "/Weather/static/js/main.3960ba23.js",
     "static/media/not_found.png": "/Weather/static/media/not_found.0c2eb886dc24f925d6bf.png",
     "static/media/NYC Skyline.jpg": "/Weather/static/media/NYC Skyline.27192f82fb61a4ea24b7.jpg",
     "static/media/sleet.svg": "/Weather/static/media/sleet.49831a9248bd8dc7a4e32316707f9231.svg",
@@ -22,11 +22,11 @@
     "static/media/humidity.svg": "/Weather/static/media/humidity.315af3fcbaa8f8253405bdd50b1dfd13.svg",
     "index.html": "/Weather/index.html",
     "static/media/cloudy.svg": "/Weather/static/media/cloudy.395c6d34650c4d65a0fda43242736405.svg",
-    "main.98e55d9a.css.map": "/Weather/static/css/main.98e55d9a.css.map",
-    "main.7f896a4d.js.map": "/Weather/static/js/main.7f896a4d.js.map"
+    "main.0d84a3c8.css.map": "/Weather/static/css/main.0d84a3c8.css.map",
+    "main.3960ba23.js.map": "/Weather/static/js/main.3960ba23.js.map"
   },
   "entrypoints": [
-    "static/css/main.98e55d9a.css",
-    "static/js/main.7f896a4d.js"
+    "static/css/main.0d84a3c8.css",
+    "static/js/main.3960ba23.js"
   ]
 }
