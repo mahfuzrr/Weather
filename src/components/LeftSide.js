@@ -69,10 +69,10 @@ export default function LeftSide() {
                                 });
                                 setUpcomingTemperature(updatedResult);
                                 const maxData = result?.daily?.map((data) => {
-                                    return Math.round(data?.temp?.max);
+                                    return Math.floor(data?.temp?.max);
                                 });
                                 const minData = result?.daily?.map((data) => {
-                                    return Math.round(data?.temp?.min);
+                                    return Math.floor(data?.temp?.min);
                                 });
                                 setMaxTempData(maxData);
                                 setMinTempData(minData);
